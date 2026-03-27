@@ -43,7 +43,7 @@ jobs:
 
       - name: Docker Extract
         id: extract
-        uses: shrink/actions-docker-extract@v3
+        uses: shrink/actions-docker-extract@v4
         with:
           image: boostchicken:udm-podman
           path: /tmp/install/.
