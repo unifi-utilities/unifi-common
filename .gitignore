@@ -1,6 +1,0 @@
-/.idea/
-/**/debian/files
-/**/debian/*.substvars
-debhelper-build-stamp
-.debhelper
-Wiki_Wireguard.md
