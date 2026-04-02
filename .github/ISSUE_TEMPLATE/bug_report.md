@@ -14,14 +14,14 @@ A clear and concise description of what the bug is.
 
 ## To Reproduce
 
-Steps to reproduce the behaviour:
+Steps to reproduce the behavior:
 
 1. Go to "..."
 2. Click on "..."
 3. Scroll down to "..."
 4. See error
 
-## Expected behaviour
+## Expected behavior
 
 A clear and concise description of what you expected to happen.
 
@@ -32,8 +32,8 @@ If applicable, add screenshots to help explain your problem.
 ## Device Information
 
 - Variant, for example UniFi Cloud Gateway or UniFi Dream Machine Pro SE
-- UniFi OS (UOS), for example 5.x.x
-- UniFi Network Application (UNA), for example 10.x.x
+- UniFi OS (UOS), for example, 5.x.x
+- UniFi Network Application (UNA), for example, 10.x.x.
 
 ## Additional context
 

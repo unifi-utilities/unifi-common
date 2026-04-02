@@ -1,7 +1,7 @@
-name: 'Close Stale Issues / PRs'
+name: 'Close Stale Issues and PRs'
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 */6 * * *'
 
 jobs:
   close-issues:
@@ -14,10 +14,8 @@ jobs:
     steps:
       - uses: actions/stale@v10.2.0
         with:
-          days-before-issue-stale: 7
-          days-before-pr-stale: 7
-          days-before-issue-close: 7
-          days-before-pr-close: 7
+          days-before-stale: 7
+          days-before-close: 3
           stale-issue-label: "stale"
           stale-pr-label: "stale"
           exempt-pr-labels: 'keep-open'
