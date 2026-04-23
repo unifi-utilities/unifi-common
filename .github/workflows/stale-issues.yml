@@ -1,0 +1,53 @@
+name: Manage stale issues
+
+on:
+  push:
+    paths:
+      - .github/workflows/stale-issues.yml
+    branches-ignore:
+      - dependabot/**
+  schedule:
+    # Once every day at midnight UTC
+    - cron: "0 0 * * *"
+  issue_comment:
+
+permissions: {}
+
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
+
+concurrency:
+  group: stale-issues
+  cancel-in-progress: ${{ github.event_name != 'issue_comment' }}
+
+jobs:
+  stale:
+    if: >
+      github.event_name != 'issue_comment' || (
+        contains(github.event.issue.labels.*.name, 'stale') ||
+        contains(github.event.pull_request.labels.*.name, 'stale')
+      )
+    runs-on: ubuntu-slim
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    steps:
+      - name: Mark/Close Stale Issues and Pull Requests
+        uses: actions/stale@b5d41d4e1d5dceea10e7104786b73624c18a190f # v10.2.0
+        with:
+          repo-token: ${{ secrets.GH_TKN }}
+          days-before-stale: 21
+          days-before-close: 7
+          stale-issue-message: >
+            This issue has been automatically marked as stale because it has not
+            had recent activity. It will be closed if no further activity
+            occurs.
+          stale-pr-message: >
+            This pull request has been automatically marked as stale because it
+            has not had recent activity. It will be closed if no further
+            activity occurs.
+          exempt-issue-labels: "keep-open"
+          exempt-pr-labels: "keep-open"
+          delete-branch: true
