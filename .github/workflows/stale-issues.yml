@@ -25,8 +25,7 @@ jobs:
   stale:
     if: >
       github.event_name != 'issue_comment' || (
-        contains(github.event.issue.labels.*.name, 'stale') ||
-        contains(github.event.pull_request.labels.*.name, 'stale')
+        contains(github.event.issue.labels.*.name, 'stale')
       )
     runs-on: ubuntu-slim
     permissions:
@@ -37,7 +36,7 @@ jobs:
       - name: Mark/Close Stale Issues and Pull Requests
         uses: actions/stale@b5d41d4e1d5dceea10e7104786b73624c18a190f # v10.2.0
         with:
-          repo-token: ${{ secrets.GH_TKN }}
+          repo-token: ${{ secrets.PAT_STALE }}
           days-before-stale: 21
           days-before-close: 7
           stale-issue-message: >
