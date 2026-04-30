@@ -33,14 +33,32 @@ depends_on() {
 
 udm_model() {
   case "$(ubnt-device-info model || true)" in
-  "UniFi Dream Machine SE")
-    echo "udmse"
+  "Enterprise Fortress Gateway")
+    echo "udment"
+    ;;
+  "UniFi Cloud Gateway Fiber")
+    echo "ucgfiber"
+    ;;
+  "UniFi Cloud Gateway Max")
+    echo "uxgmax"
+    ;;
+  "UniFi Cloud Gateway Ultra")
+    echo "ucgult"
+    ;;
+  "UniFi Dream Machine")
+    echo "udm"
+    ;;
+  "UniFi Dream Machine Beast")
+    echo "udmbeast"
     ;;
   "UniFi Dream Machine Pro")
     echo "udmpro"
     ;;
-  "UniFi Dream Machine")
-    echo "udm"
+  "UniFi Dream Machine Pro Max")
+    echo "udmpromax"
+    ;;
+  "UniFi Dream Machine SE")
+    echo "udmse"
     ;;
   "UniFi Dream Router")
     echo "udr"
@@ -48,29 +66,14 @@ udm_model() {
   "UniFi Dream Router 7")
     echo "udr7"
     ;;
-  "UniFi Dream Machine Pro Max")
-    echo "udmpromax"
-    ;;
-  "UniFi Cloud Gateway Ultra")
-    echo "ucgult"
-    ;;
-  "UniFi Cloud Gateway Max")
-    echo "uxgmax"
-    ;;
   "UniFi Express")
     echo "ux"
     ;;
   "UniFi Express 7")
     echo "ux7"
     ;;
-  "UniFi Cloud Gateway Fiber")
-    echo "ucgfiber"
-    ;;
   "UniFi NeXt-Gen Gateway Fiber")
     echo "uxgfiber"
-    ;;
-  "Enterprise Fortress Gateway")
-    echo "udment"
     ;;
   *)
     echo "unknown"
@@ -118,7 +121,7 @@ depends_on curl
 ON_BOOT_D_PATH="${DATA_DIR}/on_boot.d"
 
 case "$(udm_model)" in
-udr | udmse | udm | udmpro | udmpromax | uxgmax | ucgult | ucgfiber | ux | uxgfiber | udr7 | ux7 | udment)
+udment | ucgfiber | uxgmax | ucgult | udm | udmbeast | udmpro | udmpromax | udmse | udr | udr7 | ux | ux7 | uxgfiber)
   echo "$(ubnt-device-info model) version $(ubnt-device-info firmware) was detected"
   echo "Installing on-boot script..."
   depends_on systemctl
