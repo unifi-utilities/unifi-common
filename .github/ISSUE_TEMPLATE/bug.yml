@@ -1,4 +1,5 @@
 name: Bug Report
+title: "[BUG] - [Short description of the bug]"
 description: Report a reproducible bug.
 type: "Bug"
 body:
