@@ -2,6 +2,7 @@ name: Feature Request
 title: "[FR] - [Short description of the request]"
 description: Suggest a new feature.
 type: "Feature"
+labels: ["feature"]
 body:
   - type: textarea
     attributes:
