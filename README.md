@@ -27,6 +27,6 @@ Head over to the addons repository to find some scripts to run at boot:
 ## Missing something?
 
 > [!TIP]
-> We have moved the old addons to a new repository to make it easier to maintain and add new addons. If you have an addon that you would like to see added, please open an issue or submit a pull request.
+> We have moved the old add-ons to a new repository to make it easier to maintain and add new add-ons. If you have an addon that you would like to see added, please open an issue or submit a pull request.
 
 <https://github.com/unifi-utilities/unifios-utilities-archived>
