@@ -26,7 +26,7 @@ body:
     attributes:
       label: System information
       description: |
-        - Device variant (e.g. UniFi Cloud Gateway, UniFi Dream Machine Pro SE):
+        - Device variant (e.g., UniFi Cloud Gateway, UniFi Dream Machine Pro SE):
         - UniFi OS (UOS) version:
         - UniFi Network Application (UNA) version:
         - Script/add-on version:
