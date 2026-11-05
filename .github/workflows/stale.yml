@@ -10,12 +10,9 @@ on:
     # Once every day at midnight UTC
     - cron: "0 0 * * *"
   issue_comment:
+  workflow_dispatch:
 
 permissions: {}
-
-defaults:
-  run:
-    shell: bash -xeuo pipefail {0}
 
 concurrency:
   group: stale-issues
@@ -29,14 +26,16 @@ jobs:
       )
     runs-on: ubuntu-slim
     permissions:
+      # Lets the action clean up the cache it uses to save state between runs.
+      actions: write
+      # Needed for delete-branch on closed PRs.
       contents: write
       issues: write
       pull-requests: write
     steps:
       - name: Mark/Close Stale Issues and Pull Requests
-        uses: actions/stale@4391f3da665fdf50b6810c1a66712fb9ba21aa93
+        uses: actions/stale@4391f3da665fdf50b6810c1a66712fb9ba21aa93 # v11.0.0
         with:
-          repo-token: ${{ github.token }}
           days-before-stale: 7
           days-before-close: 3
           stale-issue-message: >
